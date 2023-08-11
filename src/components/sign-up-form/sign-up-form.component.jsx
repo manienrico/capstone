@@ -2,10 +2,11 @@ import './sign-up-form.styles.scss'
 import {useState} from 'react'
 
 import FormInput from '../form-input/form-input.component'
+import Button from '../button/button.component'
 
 import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
 //import { setDoc } from 'firebase/firestore'
-import {userDocRef,createUserDocumentFromAuth} from '../../utils/firebase/firebase.utils'
+import {createUserDocumentFromAuth} from '../../utils/firebase/firebase.utils'
 
 const defaultFormFields={
     displayName: '',
@@ -94,9 +95,10 @@ const SignUpForm =()=>{
                 value={confirmPassword}
                 required
                  />
-                <button type="submit">Sign Up</button>
+                <Button buttonType="google" type="submit">
+                    Sign Up
+                </Button>
             </form>
-            
         </div>
     )
 }
