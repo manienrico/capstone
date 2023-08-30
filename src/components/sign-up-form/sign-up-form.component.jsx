@@ -95,7 +95,7 @@ const SignUpForm =()=>{
                 value={confirmPassword}
                 required
                  />
-                <Button buttonType="google" type="submit">
+                <Button buttonType="inverted" type="submit">
                     Sign Up
                 </Button>
             </form>
