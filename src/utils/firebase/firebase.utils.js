@@ -92,3 +92,11 @@ const firebaseConfig = {
 
   export const onAuthStateChangedListener = (callback)=>
    onAuthStateChanged( auth, callback )
+
+/** async stream - need to give it a callback always
+ * {
+ * next: callback,
+ * error: ,
+ * complete: ,
+ * }
+ *  */ 
