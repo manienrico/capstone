@@ -13,7 +13,9 @@ import {
   getFirestore,
   doc,
   getDoc,
-  setDoc
+  setDoc,
+  collection,
+  writeBatch,
 } from 'firebase/firestore'
 
 
@@ -42,6 +44,29 @@ const firebaseConfig = {
 
   //Database
   export const db = getFirestore()
+
+  //adding documents methods here below
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd, field='title')=>{
+  const collectionRef = collection(db,collectionKey) //colection reference
+  const batch = writeBatch(db)
+
+  objectsToAdd.forEach((object)=>{
+    const docRef = doc(collectionRef, object.title.toLowerCase())
+    batch.set(docRef,object)
+  })
+  await batch.commit()
+  console.log("done adding documents")
+}
+
+  //getting data from db
+// export const getCategoriesAndDocuments = async ()=>{
+
+// }
+
+
+
+
+
 
   export const createUserDocumentFromAuth = async (
     userAuth,
